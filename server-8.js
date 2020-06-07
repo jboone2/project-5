@@ -1,5 +1,5 @@
 //jshint esversion: 6
-//Adds Post data to db in server
+//Adds endpoint to Delete a single tel number
 
 // initialize
 
@@ -39,8 +39,7 @@ app.get('/telnums', (req, res) => {
   });
 });
 
-//Post request endpoint
-//test it with Postman app
+// endpoint to add a tel number
 app.post('/addnum', (req, res) => {
   const telnum = {
     id: db.length + 1,
@@ -52,6 +51,49 @@ app.post('/addnum', (req, res) => {
     success: 'true',
     message: 'Telephone Number added successfully',
     telnum
+  });
+});
+
+//endpoint to get a single tel number
+//Examples: /telnum/1, /telnum/7, /telnum/11, ...
+app.get('/telnum/:id', (req, res, next) => {
+  const id = parseInt(req.params.id, 10);
+  db.map((telnum) => {
+    if (telnum.id === id) {
+      return res.status(200).send({
+        success: 'true',
+        message: 'telephone number retrieved successfully',
+        telnum,
+      });
+    }
+  });
+  //if we found the target, we're done
+  if (res.status(200)) {
+    next();
+  }
+  //if we did not find the target
+  return res.status(404).send({
+    success: 'false',
+    message: 'telphone number does not exist',
+  });
+});
+
+//Endpoint to Delete a single tel number
+app.delete('/deletenum/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+
+  db.map((telnum, index) => {
+    if (telnum.id === id) {
+      db.splice(index, 1);
+      return res.status(200).send({
+        success: 'true',
+        message: 'Telephone number deleted successfuly',
+      });
+    }
+  });
+  return res.status(404).send({
+    success: 'false',
+    message: 'Telephone number not found',
   });
 });
 
