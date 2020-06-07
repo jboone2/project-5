@@ -2,36 +2,36 @@
 <html>
 
 <head>
-  <title>A Simple App</title>
+  <title>A Simple To-Do App</title>
 
-  <link href="stylesheets/comments.css" rel="stylesheet" type="text/css">
+  <link href="stylesheets/todo.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <header>
-    <h1>Comments</h1>
-    <p>A simple app that allows a user to input comments</p>
+    <h1>To-Do Listifier</h1>
+    <p>A simple app that allows a user to manage a to-do list</p>
   </header>
 
   <main>
-    <section class="comment-input">
-      <p style="margin-top: 15px;">Add Your Comment: <br>
+    <section class="todo-input">
+      <p style="margin-top: 15px;">Add a List Item: <br>
         <input type="text"> <button>+</button>
       </p>
-      <p style="margin-top:10px;">Retrieve Comment:
-        <input type="text" placeholder="Enter comment" id="getOne">
+      <p style="margin-top:10px;">Retrieve a List Item:
+        <input type="text" placeholder="Enter item" id="getOne">
         <button style="font-size:18px;">&rarr;</button>
       </p>
-      <p style="margin-top:15px;">Delete Comment:
-        <input type="text" placeholder="Enter comment" id="deleteOne">
+      <p style="margin-top:15px;">Delete a List Item:
+        <input type="text" placeholder="Enter item" id="deleteOne">
         <button>-</button>
       </p>
-      <p style="margin-top:15px;">Delete All Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button>*</button>
+      <p style="margin-top:15px;">Delete All List Items:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button>*</button>
       </p>
     </section>
 
-    <section class="comments">
-      <p>List of Comments</p>
+    <section class="todos">
+      <p>To-Do List</p>
     </section>
 
     <div id="outDiv" style="margin-top: 10px; border-top: thin solid;"></div>
@@ -42,7 +42,7 @@
   </footer>
 
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="javascripts/comments.js"></script>
+  <script src="javascripts/todo.js"></script>
 </body>
 
 </html>
